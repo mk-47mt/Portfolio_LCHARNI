@@ -133,30 +133,85 @@ h2 {
     font-size: 1rem;
 }
 
-/* Timeline */
+/* Container de la timeline */
 .timeline-container {
     width: 80%;
     margin: 0 auto;
     position: relative;
-    max-width: 100%; /* Empêche le dépassement horizontal */
 }
 
+/* Ligne verticale */
 .timeline {
-    background: #ff0000;
+    position: relative;
     width: 4px;
+    background: #ff0000;
     margin: 0 auto;
     height: 100%;
 }
 
+/* Style des éléments */
 .timeline-item {
-    padding-left: 2rem;
-    margin: 2rem 0;
     position: relative;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    text-align: left;
 }
 
-.timeline-item h3 a {
-    text-decoration: none;
+.timeline-item h3 {
+    margin: 0;
     color: #ff0000;
+}
+
+.timeline-item p {
+    margin: 0.5rem 0;
+    color: #fff;
+}
+
+/* Photo des établissements */
+.school-photo {
+    width: 200px;
+    height: auto;
+    margin-top: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Points sur la frise */
+.scroll-point {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    border: 4px solid #ff0000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    z-index: 1;
+}
+
+/* Position du point sur chaque élément */
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -12px;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    background: #ff0000;
+    border-radius: 50%;
+}
+
+
+/* Ajouter la partie pour le texte supplémentaire */
+.inline-text {
+    display: inline; /* Assure que le texte principal reste en ligne */
+    margin-right: 10px;
+}
+
+.additional-info {
+    font-style: italic;
+    margin-top: 5px;
+    font-size: 0.9rem; /* Réduire légèrement la taille de la police pour l'info supplémentaire */
 }
 
 .scroll-point {
@@ -247,4 +302,61 @@ h2 {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Container des blocs */
+.school-blocks {
+    display: flex;
+    flex-direction: column; /* Les blocs restent empilés verticalement */
+    align-items: center;
+    gap: 2rem; /* Espacement entre les blocs */
+    margin: 2rem 5%;
+}
+
+/* Style général des blocs */
+.school-card {
+    display: flex; /* Aligne les enfants (image et texte) horizontalement */
+    flex-direction: row; /* Disposition : photo à gauche, texte à droite */
+    align-items: center;
+    background-color: #3B1219; /* Couleur de fond correspondant au style général */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    width: 90%; /* Largeur des blocs */
+    max-width: 800px; /* Limite la largeur */
+    height: auto; /* Hauteur ajustée au contenu */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.school-card:hover {
+    transform: translateY(-10px); /* Effet de survol */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Ombre plus forte */
+}
+
+/* Photo des établissements */
+.school-photo {
+    width: 40%; /* Photo occupe 40% de la largeur du bloc */
+    height: 100%; /* S'étire verticalement pour s'adapter au bloc */
+    object-fit: cover;
+}
+
+/* Infos des établissements */
+.school-info {
+    width: 60%; /* Texte occupe 60% de la largeur du bloc */
+    padding: 1.5rem;
+    text-align: left; /* Alignement à gauche du texte */
+    color: white;
+}
+
+.school-info h3 {
+    margin: 0.5rem 0;
+    font-size: 1.8rem; /* Titre légèrement agrandi */
+    color: #ff0000; /* Couleur pour les titres */
+}
+
+.school-info p {
+    margin: 0;
+    font-size: 1.2rem; /* Texte légèrement agrandi */
+    color: white;
 }
