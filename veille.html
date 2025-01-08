@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veille Technologique</title>
+    <link rel="stylesheet" href="./css/style2.css">
+
+    <script>
+        // Fonction pour charger et afficher un flux RSS dynamique
+        function loadRSS(rssUrl) {
+            fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`)
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('rss-feed');
+                    container.innerHTML = ''; // Réinitialise le contenu avant de charger de nouveaux articles
+                    data.items.forEach(item => {
+                        const article = document.createElement('article');
+                        const title = document.createElement('h3');
+                        const link = document.createElement('a');
+                        const date = document.createElement('p'); // Créer un élément pour la date
+                        const image = document.createElement('img'); // Créer un élément image
+
+                        title.textContent = item.title;
+                        link.setAttribute('href', item.link);
+                        link.setAttribute('target', '_blank');
+
+                        // Vérifier si l'item a une image
+                        if (item.enclosure && item.enclosure.link) {
+                            image.setAttribute('src', item.enclosure.link); // Définir l'URL de l'image
+                            image.setAttribute('alt', item.title); // Ajouter un texte alternatif
+                            image.style.maxWidth = '100%'; // Pour que l'image soit responsive
+                        }
+
+                        // Formatage de la date
+                        const pubDate = new Date(item.pubDate); // Créer un objet Date à partir de la date de publication
+                        date.textContent = pubDate.toLocaleDateString('fr-FR', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        }); // Afficher la date au format français
+
+                        link.appendChild(title);
+                        article.appendChild(image); // Ajouter l'image à l'article
+                        article.appendChild(link); // Ajouter le lien au titre
+                        article.appendChild(date); // Ajouter la date à l'article
+                        container.appendChild(article);
+                    });
+                })
+                .catch(error => {
+                    console.error('Erreur lors du chargement du flux RSS:', error);
+                });
+        }
+
+        // Charger un flux RSS par défaut lors du chargement de la page
+        window.onload = function() {
+            loadRSS('https://insideevs.fr/rss/category/autonomous-cars/');
+        };
+    </script>
+
+</head>
+
+<body class="fade-in">
+
+    <!-- Le header maintenant contient le logo et la navbar -->
+    <header>
+        <img class="logo" src="img/logo-btssio-removebg-preview.png" alt="logo">
+        <nav class="navbar">
+            <a href="index.html" class="active">Accueil</a>
+            <a href="profil.html" class="active">Profil et Parcours</a>
+            <a href="projet.html" class="active">Projets</a>
+            <a href="certif.html" class="active">Certifications</a>
+            <a href="veille.html" class="active">Veille</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">E5 <span class="arrow">▲</span></a>
+                <div class="dropdown-menu">
+                    <a href="projet/CHARNI_Louay_12-11.pdf">Tableau de synthèse des réalisations professionnelles</a>
+                    <a href="document2.html">Document 2</a>
+                    <a href="document3.html">Document 3</a>
+                </div>
+            </div>
+            <a href="contact.html" class="active">Contact</a>
+        </nav>
+    </header>
+
+    <header>
+        <h1><center>Veille Technologique : Dernières Avancées de l'IA dans le Monde de l'Automobile (FR)</h1>
+    </header>
+
+    <section id="section1">
+        <h2>Introduction</h2>
+        <p>L'industrie automobile évolue rapidement, intégrant des innovations technologiques qui transforment
+            l'expérience de conduite, la sécurité et la durabilité. De nombreux acteurs, dont Tesla, contribuent à cette
+            révolution, mais d'autres marques s'illuminent également avec leurs propres avancées.</p>
+    </section>
+
+    <section id="section2">
+        <h2>Technologies Innovantes</h2>
+        <ul>
+            <li>
+                <strong>Conduite autonome :</strong><br>
+                Des systèmes de conduite autonome, comme le niveau 2 et 3, se développent chez plusieurs fabricants. Des
+                technologies comme le système Autopilot de Tesla, mais aussi le Super Cruise de GM et le système de
+                conduite autonome de Waymo, montrent des progrès significatifs en matière de sécurité et de confort.
+            </li>
+            <br>
+            <li>
+                <strong>Batteries avancées :</strong><br>
+                Les améliorations des batteries lithium-ion et l'émergence de nouvelles technologies de batteries, comme
+                les batteries à l'état solide, permettent d’augmenter l’autonomie des véhicules électriques tout en
+                réduisant les temps de recharge. Des entreprises comme Tesla, mais aussi BYD et Panasonic, investissent
+                massivement dans la recherche et le développement de ces technologies.
+            </li>
+            <br>
+            <li>
+                <strong>Recharge rapide et infrastructure :</strong><br>
+                Les réseaux de recharge, tels que les Superchargers de Tesla, ainsi que les bornes de recharge rapide
+                d'autres entreprises, permettent une transition plus fluide vers la mobilité électrique. La mise en
+                place d'une infrastructure de recharge accessible et rapide est essentielle pour encourager l'adoption
+                des véhicules électriques.
+            </li>
+            <br>
+            <li>
+                <strong>Connectivité et intelligence embarquée :</strong> <br>
+                Les voitures modernes sont de plus en plus connectées, offrant des fonctionnalités telles que des mises
+                à jour logicielles à distance, la gestion des données de conduite, et l'intégration des smartphones.
+                Cela améliore non seulement l'expérience utilisateur, mais permet aussi d’optimiser la performance et la
+                sécurité des véhicules.
+            </li>
+            <br>
+            <li>
+                <strong> Systèmes d'assistance à la conduite (ADAS) :</strong><br>
+                Les systèmes d'assistance à la conduite, comme le freinage d'urgence automatique, le maintien de voie et
+                la détection des piétons, deviennent de plus en plus sophistiqués et intégrés dans les nouveaux modèles,
+                augmentant la sécurité routière.
+            </li>
+        </ul>
+    </section>
+
+    <section id="section3">
+        <h2>Dernières Nouvelles</h2>
+        
+        <!-- Les boutons de sélection de catégorie -->
+        <div class="rss-categories">
+            <button onclick="loadRSS('https://insideevs.fr/rss/category/autonomous-cars/')">InsideEVs - Voitures autonomes</button>
+            <button onclick="loadRSS('https://techcrunch.com/category/artificial-intelligence/feed/')">TechCrunch AI</button>
+            <button onclick="loadRSS('https://www.theverge.com/rss/ai/index.xml')">The Verge AI</button>
+            <button onclick="loadRSS('https://www.technologyreview.com/feed/')">MIT Technology Review</button>
+            <button onclick="loadRSS('https://spectrum.ieee.org/rss/fulltext')">IEEE Spectrum</button>
+        </div>
+        
+        <br>
+        <div id="rss-feed">
+            <!-- Les articles RSS seront insérés ici -->
+        </div>
+    </section>
+
+    <section id="section4">
+        <h2>Conclusion</h2>
+        <p>L'innovation dans le secteur automobile ne se limite pas à un seul acteur, mais représente un écosystème
+            dynamique où la collaboration et la concurrence stimulent le progrès technologique. L'avenir de la mobilité
+            est prometteur, avec des avancées qui rendent les véhicules plus sûrs, plus durables et plus agréables à
+            conduire.
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 - Veille Technologique réalisée par Charni Louay</p>
+    </footer>
+    <div id="particles-js"></div> <!-- Partie où les particules seront affichées -->
+    <script type="text/javascript" src="js/particles.js"></script> <!-- Chargement du script particles.js -->
+    <script type="text/javascript" src="js/app.js"></script> <!-- Chargement de ton fichier app.js -->
+    <script type="text/javascript" src="js/dropdown.js"></script>
+</body>
+
+</html>

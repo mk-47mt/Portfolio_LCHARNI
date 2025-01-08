@@ -1,0 +1,250 @@
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #191111;
+    color: #ffffff;
+    overflow-x: hidden; /* Empêche les débordements horizontaux */
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+header {
+    padding: 1rem;
+    text-align: right;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 5%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-sizing: border-box; /* Pour éviter les débordements dus aux paddings */
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+}
+
+.navbar a:hover,
+.navbar a:active {
+    color: #ff0000;
+}
+
+/* Section et cartes */
+section {
+    margin: 2rem 5%;
+    max-width: 100%; /* Empêche le dépassement horizontal */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: white;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+    max-width: 100%; /* Empêche le dépassement horizontal */
+    box-sizing: border-box; /* Inclut les paddings/marges dans la largeur */
+}
+
+.card {
+    width: 250px;
+    height: 400px;
+    perspective: 1000px;
+    position: relative;
+    cursor: pointer;
+    flex-shrink: 0; /* Empêche les cartes de rétrécir */
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+}
+
+.card.clicked .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1rem;
+    overflow: hidden;
+    box-sizing: border-box; /* Ajout pour contrôler les paddings */
+}
+
+.card-front {
+    background-color: #3B1219;
+    color: white;
+}
+
+.card-back {
+    background-color: #ff0000;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.card p,
+.card ul {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Timeline */
+.timeline-container {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    max-width: 100%; /* Empêche le dépassement horizontal */
+}
+
+.timeline {
+    background: #ff0000;
+    width: 4px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.timeline-item {
+    padding-left: 2rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.timeline-item h3 a {
+    text-decoration: none;
+    color: #ff0000;
+}
+
+.scroll-point {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    border: 4px solid #ff0000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    z-index: 1;
+}
+
+.logo {
+    width: 150px;
+}
+
+/* Style pour le menu déroulant */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    font-size: 18px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #3B1219;
+    padding: 10px 0;
+    border-radius: 8px;
+    box-sizing: border-box; /* Ajout pour gérer les paddings */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    min-width: 200px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.dropdown-menu a:hover {
+    background-color: #ff0000;
+    color: white;
+    border-radius: 4px;
+}
+
+/* Flèche */
+.arrow {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown.open .arrow {
+    transform: rotate(180deg);
+}
+
+/* Animation d'ouverture */
+.dropdown.open .dropdown-menu {
+    display: block;
+    animation: dropdown-slide 0.3s ease-out;
+}
+
+@keyframes dropdown-slide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

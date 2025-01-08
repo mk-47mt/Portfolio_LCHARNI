@@ -1,0 +1,275 @@
+/* Styles généraux */
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #191111;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: flex-start; /* Laisse de l'espace en haut */
+}
+
+/* Conteneur de particules (si vous l'utilisez) */
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* Header aligné avec le style précédent */
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 5%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-sizing: border-box; /* Évite les débordements dus aux paddings */
+}
+
+.logo {
+    width: 150px;
+}
+
+.navbar {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.navbar a:hover {
+    color: #ff0000;
+}
+
+/* Section */
+section {
+    margin: 2rem 5%;
+    text-align: center;
+}
+
+section h2 {
+    margin-bottom: 2rem;
+    color: white;
+}
+
+/* Style pour le carousel d'images */
+.image-container {
+    position: relative;
+    width: 200px; /* Taille fixe pour les images */
+    height: 200px; /* Taille fixe pour les images */
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateY(0deg);
+    transition: transform 0.7s;
+    margin: 9rem auto; /* Positionne plus haut l'image container */
+    padding-bottom: 20px; /* Espacement pour la description */
+}
+
+.image-container span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: rotateY(calc(var(--i) * 45deg)) translateZ(400px);
+}
+
+.image-wrapper {
+    position: relative;
+    overflow: hidden; /* Empêche la description de déborder sur l'image */
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Remplie l'espace sans déformation */
+}
+
+.description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    text-align: center;
+    border-radius: 0 0 8px 8px; /* Bords arrondis en bas */
+}
+
+/* Conteneur des boutons fixes en bas */
+.btn-container {
+    position: fixed;
+    bottom: 20px; /* Espacement de 20px du bas de la page */
+    left: 50%;
+    transform: translateX(-50%); /* Centrer horizontalement */
+    text-align: center;
+    width: 100%;
+}
+
+.btn {
+    background-color: #3B1219;
+    color: white;
+    border: 2px solid #ff0000;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #ff0000;
+    color: #191111;
+}
+
+#prev {
+    margin-right: 10px;
+}
+
+/* Styles pour les cartes de projet */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background-color: #3B1219;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+/* Ajustement pour éviter que le contenu soit caché sous les boutons */
+.content {
+    padding-bottom: 80px; /* Ajuste cet espacement pour tenir compte de la hauteur des boutons */
+}
+
+/* Style pour le menu déroulant */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    font-size: 18px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #3B1219;
+    padding: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    min-width: 200px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.dropdown-menu a:hover {
+    background-color: #ff0000;
+    color: white;
+    border-radius: 4px;
+}
+
+/* Flèche */
+.arrow {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown.open .arrow {
+    transform: rotate(180deg);
+}
+
+/* Animation d'ouverture */
+.dropdown.open .dropdown-menu {
+    display: block;
+    animation: dropdown-slide 0.3s ease-out;
+}
+
+@keyframes dropdown-slide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    text-align: center;
+    border-radius: 0 0 8px 8px; /* Bords arrondis en bas */
+    display: flex;
+    justify-content: space-between; /* Aligne les éléments */
+    align-items: center;
+}
+
+.doc-link {
+    font-size: 18px; /* Taille de l'emoji */
+    margin-left: 10px; /* Espacement entre la description et l'emoji */
+    cursor: pointer; /* C'est un lien cliquable */
+}
+
+.doc-link:hover {
+    color: #ff0000; /* Change la couleur au survol */
+}

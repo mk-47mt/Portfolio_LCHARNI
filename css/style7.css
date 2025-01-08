@@ -1,0 +1,177 @@
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #191111;
+}
+
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+header {
+    color: white;
+    padding: 1rem;
+    text-align: right;
+}
+
+.navbar a {
+    font-size: 18px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+}
+
+.navbar a:hover,
+.navbar a:active {
+    color: #ff0000;
+}
+
+section {
+    margin: 2rem 5%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: white;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.card {
+    width: 250px;
+    height: 350px;
+    perspective: 1000px;
+}
+
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #3B1219;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.2rem;
+    transition: transform 0.5s;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    background-color: #3B1219;
+}
+
+.card-back {
+    background-color: #ff0000;
+    transform: rotateY(180deg);
+    padding: 20px;
+    text-align: left;
+}
+
+.card:hover .card-front {
+    transform: rotateY(180deg);
+}
+
+.card:hover .card-back {
+    transform: rotateY(0deg);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+.logo{
+    width: 150px;
+}
+/* Style pour le menu déroulant */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    font-size: 18px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #3B1219;
+    padding: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    min-width: 200px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.dropdown-menu a:hover {
+    background-color: #ff0000;
+    color: white;
+    border-radius: 4px;
+}
+
+/* Flèche */
+.arrow {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown.open .arrow {
+    transform: rotate(180deg);
+}
+
+/* Animation d'ouverture */
+.dropdown.open .dropdown-menu {
+    display: block;
+    animation: dropdown-slide 0.3s ease-out;
+}
+
+@keyframes dropdown-slide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
