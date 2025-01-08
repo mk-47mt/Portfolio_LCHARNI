@@ -33,7 +33,7 @@ const imageDetails = [
         url: "img/WS.png", 
         description: "Projet Windows Server", 
         link: "https://microsoft.com/windows-server", 
-        docLink: "resources/windows_server.pdf"
+        docLink: "projet/Projet_Mallet_Installation_SI_Reformule_Complet.pdf"
     },
     { 
         url: "img/GNS3_logo.png", 
