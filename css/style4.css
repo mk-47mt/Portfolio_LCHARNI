@@ -68,6 +68,7 @@ section {
   margin: 2rem 5%;
   max-width: 100%; /* Évite tout débordement horizontal */
   box-sizing: border-box; /* Assure que les paddings sont inclus dans la largeur */
+  width: 80%;
 }
 
 h2 {
