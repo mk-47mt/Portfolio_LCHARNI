@@ -80,7 +80,7 @@ h2 {
 
 .certifications {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 colonnes fixes */
+  grid-template-columns: repeat(4, 1fr); /* 5 colonnes fixes */
   gap: 3rem;
   width: 100%;
   max-width: 100%;
