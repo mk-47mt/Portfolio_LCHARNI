@@ -79,11 +79,12 @@ h2 {
 
 .certifications {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(5, 1fr); /* 5 colonnes fixes */
   gap: 3rem;
-  width: 100%; /* Assure que le conteneur ne dépasse pas */
+  width: 100%;
   max-width: 100%;
 }
+
 
 .certification-card img {
   width: 100%;
