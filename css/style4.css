@@ -82,8 +82,7 @@ h2 {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 5 colonnes fixes */
   gap: 3rem;
-  width: 100%;
-  max-width: 100%;
+  margin: 0 auto;
 }
 
 
@@ -92,7 +91,7 @@ h2 {
   aspect-ratio: 3/2;
   object-fit: contain;
   margin: 0 auto; /* Centrer les images dans leur conteneur */
-  background-color: #3B1219;
+  
   padding: 20px 5px;
   border-radius: 8px;
   cursor: pointer;
@@ -115,6 +114,7 @@ h2 {
   margin-bottom: 2rem;
   gap: 1rem;
   max-width: 100%; /* Limite les débordements */
+  margin: 0 auto;
 }
 
 .filter-buttons button {
