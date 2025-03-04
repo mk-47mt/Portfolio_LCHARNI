@@ -34,6 +34,13 @@ const certifications = [
         imageUrl: 'certif/certif chat gpt_page-0001.jpg',
         siteUrl: 'certif/certif chat gpt.pdf'
     },
+     {
+        id: 6,
+        title: 'Certification Réseau',
+        category: 'Réseau',
+        imageUrl: 'certif/5061_7991609_page-0001.jpg',
+        siteUrl: 'certif/5061_7991609.pdf'
+    },
     // Ajoutez d'autres certifications ici
 ];
 
