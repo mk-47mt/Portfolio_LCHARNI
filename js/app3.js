@@ -41,6 +41,13 @@ const certifications = [
         imageUrl: 'certif/5061_7991609_page-0001.jpg',
         siteUrl: 'certif/5061_7991609.pdf'
     },
+     {
+        id: 7,
+        title: 'Certification en Dev',
+        category: 'Development',
+        imageUrl: 'certif/4496_7992265_page-0001.jpg',
+        siteUrl: 'certif/4496_7992265.pdf'
+    },
     // Ajoutez d'autres certifications ici
 ];
 
