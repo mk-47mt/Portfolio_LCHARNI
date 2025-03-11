@@ -8,7 +8,7 @@ body {
 }
 
 #particles-js {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -28,7 +28,7 @@ header h1 {
 }
 
 .header {
-  position: fixed; /* Utilisation de position fixed pour le header */
+  position: relative; /* Utilisation de position fixed pour le header */
   top: 0;
   left: 0;
   width: 100%;
