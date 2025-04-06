@@ -3,7 +3,7 @@ const imageDetails = [
         url: "img/debian.jpg", 
         description: "Projet Debian", 
         link: "https://debian.org",   // Lien vers le site du projet
-        docLink: "resources/debian.pdf"  // Lien vers la documentation PDF
+        docLink: "projet/Compte_rendu_debian_reformulé.pdf"  // Lien vers la documentation PDF
     },
     { 
         url: "img/disney-plus-logo.png", 
@@ -15,7 +15,7 @@ const imageDetails = [
         url: "img/GLPI_Logo-color.png", 
         description: "Projet GLPI", 
         link: "https://glpi-project.org", 
-        docLink: "resources/glpi.pdf"
+        docLink: "projet/rapport_installation_glpi.pdf"
     },
     { 
         url: "img/jo2028.png", 
@@ -27,7 +27,7 @@ const imageDetails = [
         url: "img/java.png", 
         description: "Projet Java", 
         link: "https://java.com", 
-        docLink: "resources/java.pdf"
+        docLink: "projet/Cahier_des_Charges_Propre.pdf"
     },
     { 
         url: "img/WS.png", 
@@ -39,7 +39,7 @@ const imageDetails = [
         url: "img/GNS3_logo.png", 
         description: "Projet GNS3", 
         link: "https://gns3.com", 
-        docLink: "resources/gns3.pdf"
+        docLink: "projet/Compte_rendu_TP_GNS3.pdf"
     },
     { 
         url: "img/PROXMOX.png", 
