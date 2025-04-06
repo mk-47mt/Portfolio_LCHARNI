@@ -8,63 +8,81 @@
     <link rel="stylesheet" href="./css/style2.css">
 
     <script>
-        // Fonction pour charger et afficher un flux RSS dynamique
+        let allArticles = [];
+
         function loadRSS(rssUrl) {
             fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`)
                 .then(response => response.json())
                 .then(data => {
-                    const container = document.getElementById('rss-feed');
-                    container.innerHTML = ''; // Réinitialise le contenu avant de charger de nouveaux articles
-                    data.items.forEach(item => {
-                        const article = document.createElement('article');
-                        const title = document.createElement('h3');
-                        const link = document.createElement('a');
-                        const date = document.createElement('p'); // Créer un élément pour la date
-                        const image = document.createElement('img'); // Créer un élément image
-
-                        title.textContent = item.title;
-                        link.setAttribute('href', item.link);
-                        link.setAttribute('target', '_blank');
-
-                        // Vérifier si l'item a une image
-                        if (item.enclosure && item.enclosure.link) {
-                            image.setAttribute('src', item.enclosure.link); // Définir l'URL de l'image
-                            image.setAttribute('alt', item.title); // Ajouter un texte alternatif
-                            image.style.maxWidth = '100%'; // Pour que l'image soit responsive
-                        }
-
-                        // Formatage de la date
-                        const pubDate = new Date(item.pubDate); // Créer un objet Date à partir de la date de publication
-                        date.textContent = pubDate.toLocaleDateString('fr-FR', {
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric'
-                        }); // Afficher la date au format français
-
-                        link.appendChild(title);
-                        article.appendChild(image); // Ajouter l'image à l'article
-                        article.appendChild(link); // Ajouter le lien au titre
-                        article.appendChild(date); // Ajouter la date à l'article
-                        container.appendChild(article);
-                    });
+                    allArticles = data.items;
+                    displayArticles(allArticles);
                 })
                 .catch(error => {
                     console.error('Erreur lors du chargement du flux RSS:', error);
                 });
         }
 
-        // Charger un flux RSS par défaut lors du chargement de la page
-        window.onload = function() {
+        function displayArticles(articles) {
+            const container = document.getElementById('rss-feed');
+            container.innerHTML = '';
+
+            if (articles.length === 0) {
+                container.innerHTML = '<p>Aucun article ne correspond à votre filtre.</p>';
+                return;
+            }
+
+            articles.forEach(item => {
+                const article = document.createElement('article');
+                const title = document.createElement('h3');
+                const link = document.createElement('a');
+                const date = document.createElement('p');
+                const image = document.createElement('img');
+
+                title.textContent = item.title;
+                link.setAttribute('href', item.link);
+                link.setAttribute('target', '_blank');
+
+                if (item.enclosure && item.enclosure.link) {
+                    image.setAttribute('src', item.enclosure.link);
+                    image.setAttribute('alt', item.title);
+                    image.style.maxWidth = '100%';
+                }
+
+                const pubDate = new Date(item.pubDate);
+                date.textContent = pubDate.toLocaleDateString('fr-FR', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                link.appendChild(title);
+                article.appendChild(image);
+                article.appendChild(link);
+                article.appendChild(date);
+                container.appendChild(article);
+            });
+        }
+
+        function filterArticles() {
+            const keyword = document.getElementById('filter-keyword').value.toLowerCase();
+
+            const filtered = allArticles.filter(item =>
+                item.title.toLowerCase().includes(keyword) ||
+                item.description.toLowerCase().includes(keyword)
+            );
+
+            displayArticles(filtered);
+        }
+
+        window.onload = function () {
             loadRSS('https://insideevs.fr/rss/category/autonomous-cars/');
         };
     </script>
-
 </head>
 
 <body class="fade-in">
 
-    <!-- Le header maintenant contient le logo et la navbar -->
-    <header>
+    <header class="header">
         <img class="logo" src="img/logo-btssio-removebg-preview.png" alt="logo">
         <nav class="navbar">
             <a href="index.html" class="active">Accueil</a>
@@ -75,103 +93,95 @@
             <div class="dropdown">
                 <a href="#" class="dropdown-toggle">E5 <span class="arrow">▲</span></a>
                 <div class="dropdown-menu">
-                    <a href="projet/CHARNI_Louay_12-11.pdf">Tableau de synthèse des réalisations professionnelles</a>
-                    <a href="document2.html">Document 2</a>
-                    <a href="document3.html">Document 3</a>
+                    <a href="projet/BTS SIO- Tableau de synthese - Epreuve E4 -1- -2- -1-.pdf">Tableau de synthèse des réalisations professionnelles</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">E6 <span class="arrow">▲</span></a>
+                <div class="dropdown-menu">
+                    <a href="projet/e6.pdf"> Fiche descriptive de réalisation professionnelle</a>
                 </div>
             </div>
             <a href="contact.html" class="active">Contact</a>
         </nav>
     </header>
-
     <header>
-        <h1><center>Veille Technologique : Dernières Avancées de l'IA dans le Monde de l'Automobile (FR)</h1>
+        <h1><center>Veille Technologique : Dernières Avancées de l'IA dans le Monde de l'Automobile (FR)</center></h1>
     </header>
 
     <section id="section1">
         <h2>Introduction</h2>
-        <p>L'industrie automobile évolue rapidement, intégrant des innovations technologiques qui transforment
-            l'expérience de conduite, la sécurité et la durabilité. De nombreux acteurs, dont Tesla, contribuent à cette
-            révolution, mais d'autres marques s'illuminent également avec leurs propres avancées.</p>
+        <p>L'industrie automobile connaît une transformation majeure grâce à l'intelligence artificielle (IA). Cette technologie révolutionne la conduite, la sécurité, la maintenance prédictive, l'interaction homme-machine et bien plus encore. Dans cette veille, nous explorerons les dernières innovations mêlant IA et mobilité intelligente.</p>
     </section>
 
     <section id="section2">
-        <h2>Technologies Innovantes</h2>
+        <h2>Technologies Innovantes centrées sur l’IA</h2>
         <ul>
             <li>
-                <strong>Conduite autonome :</strong><br>
-                Des systèmes de conduite autonome, comme le niveau 2 et 3, se développent chez plusieurs fabricants. Des
-                technologies comme le système Autopilot de Tesla, mais aussi le Super Cruise de GM et le système de
-                conduite autonome de Waymo, montrent des progrès significatifs en matière de sécurité et de confort.
+                <strong>Conduite autonome basée sur l’IA :</strong><br>
+                Les véhicules autonomes utilisent des algorithmes d’apprentissage automatique pour analyser l’environnement en temps réel grâce à des capteurs, caméras, radars et LIDAR. Tesla, Waymo ou encore BMW intègrent des réseaux neuronaux capables de détecter les piétons, prédire les comportements et prendre des décisions complexes.
             </li>
             <br>
             <li>
-                <strong>Batteries avancées :</strong><br>
-                Les améliorations des batteries lithium-ion et l'émergence de nouvelles technologies de batteries, comme
-                les batteries à l'état solide, permettent d’augmenter l’autonomie des véhicules électriques tout en
-                réduisant les temps de recharge. Des entreprises comme Tesla, mais aussi BYD et Panasonic, investissent
-                massivement dans la recherche et le développement de ces technologies.
+                <strong>ADAS (Advanced Driver Assistance Systems) intelligents :</strong><br>
+                Les systèmes d’assistance évoluent vers une autonomie partielle ou totale grâce à l’IA. Ils offrent freinage automatique, maintien de voie, régulateur adaptatif, détection de somnolence, le tout piloté par des intelligences embarquées.
             </li>
             <br>
             <li>
-                <strong>Recharge rapide et infrastructure :</strong><br>
-                Les réseaux de recharge, tels que les Superchargers de Tesla, ainsi que les bornes de recharge rapide
-                d'autres entreprises, permettent une transition plus fluide vers la mobilité électrique. La mise en
-                place d'une infrastructure de recharge accessible et rapide est essentielle pour encourager l'adoption
-                des véhicules électriques.
+                <strong>Navigation prédictive :</strong><br>
+                Grâce au traitement de données en temps réel, les systèmes d’info-divertissement et de navigation prédisent les itinéraires optimaux en fonction du trafic, de la météo et même des habitudes du conducteur. L’IA adapte les trajets pour économiser du temps et de l’énergie.
             </li>
             <br>
             <li>
-                <strong>Connectivité et intelligence embarquée :</strong> <br>
-                Les voitures modernes sont de plus en plus connectées, offrant des fonctionnalités telles que des mises
-                à jour logicielles à distance, la gestion des données de conduite, et l'intégration des smartphones.
-                Cela améliore non seulement l'expérience utilisateur, mais permet aussi d’optimiser la performance et la
-                sécurité des véhicules.
+                <strong>Maintenance prédictive par apprentissage machine :</strong><br>
+                L’IA analyse les données collectées par les capteurs du véhicule pour anticiper les pannes. Cela permet de détecter l’usure des pièces ou anomalies avant qu’elles ne causent une panne, réduisant ainsi les coûts d’entretien.
             </li>
             <br>
             <li>
-                <strong> Systèmes d'assistance à la conduite (ADAS) :</strong><br>
-                Les systèmes d'assistance à la conduite, comme le freinage d'urgence automatique, le maintien de voie et
-                la détection des piétons, deviennent de plus en plus sophistiqués et intégrés dans les nouveaux modèles,
-                augmentant la sécurité routière.
+                <strong>Interactions vocales et assistants intelligents :</strong><br>
+                Les systèmes embarqués (ex : MBUX chez Mercedes ou Alexa Auto) utilisent l’IA pour comprendre le langage naturel, répondre aux commandes vocales et interagir avec le conducteur pour un pilotage plus fluide et intuitif.
             </li>
         </ul>
     </section>
 
     <section id="section3">
         <h2>Dernières Nouvelles</h2>
-        
-        <!-- Les boutons de sélection de catégorie -->
+
         <div class="rss-categories">
             <button onclick="loadRSS('https://insideevs.fr/rss/category/autonomous-cars/')">InsideEVs - Voitures autonomes</button>
-            <button onclick="loadRSS(' https://www.frandroid.com/rss')">Frandroid</button>
-            <button onclick="loadRSS('https://www.theverge.com/rss/ai/index.xml')">The Verge AI</button>
-            <button onclick="loadRSS('https://www.technologyreview.com/feed/')">MIT Technology Review</button>
-            <button onclick="loadRSS('https://spectrum.ieee.org/rss/fulltext')">IEEE Spectrum</button>
+            <button onclick="loadRSS('https://www.frandroid.com/survoltes/voitures-electriques/rss')">Frandroid</button>
         </div>
-        
+
+        <br>
+
+        <label for="filter-keyword">Filtrer les articles par mot-clé :</label>
+        <input type="text" id="filter-keyword" placeholder="Ex: IA, voiture autonome, Tesla..." oninput="filterArticles()">
+
+        <div style="margin-top: 10px;">
+            <button onclick="document.getElementById('filter-keyword').value = 'IA'; filterArticles();">IA</button>
+            <button onclick="document.getElementById('filter-keyword').value = 'voiture autonome'; filterArticles();">Voiture autonome</button>
+            <button onclick="document.getElementById('filter-keyword').value = 'Tesla'; filterArticles();">Tesla</button>
+        </div>
+
         <br>
         <div id="rss-feed">
-            <!-- Les articles RSS seront insérés ici -->
+            <!-- Les articles apparaîtront ici -->
         </div>
     </section>
 
     <section id="section4">
         <h2>Conclusion</h2>
-        <p>L'innovation dans le secteur automobile ne se limite pas à un seul acteur, mais représente un écosystème
-            dynamique où la collaboration et la concurrence stimulent le progrès technologique. L'avenir de la mobilité
-            est prometteur, avec des avancées qui rendent les véhicules plus sûrs, plus durables et plus agréables à
-            conduire.
-        </p>
+        <p>L’intelligence artificielle transforme radicalement le secteur automobile, le propulsant vers une ère de véhicules intelligents, autonomes et connectés. Grâce à l’IA, la voiture devient non seulement un moyen de transport, mais un véritable assistant mobile, capable de comprendre son environnement, son conducteur et d'interagir intelligemment avec le monde.</p>
     </section>
 
     <footer>
         <p>&copy; 2024 - Veille Technologique réalisée par Charni Louay</p>
     </footer>
-    <div id="particles-js"></div> <!-- Partie où les particules seront affichées -->
-    <script type="text/javascript" src="js/particles.js"></script> <!-- Chargement du script particles.js -->
-    <script type="text/javascript" src="js/app.js"></script> <!-- Chargement de ton fichier app.js -->
-    <script type="text/javascript" src="js/dropdown.js"></script>
+
+    <div id="particles-js"></div>
+    <script src="js/particles.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/dropdown.js"></script>
 </body>
 
 </html>
