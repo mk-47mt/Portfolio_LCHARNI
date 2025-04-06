@@ -50,15 +50,15 @@ const certifications = [
     },
     {
         id: 8,
-        title: 'Certification en Dev',
-        category: 'Development',
+        title: 'Certification en Réseau',
+        category: 'Réseau',
         imageUrl: 'certif/8004221_79009071741256455443_page-0001.jpg',
         siteUrl: 'certif/8004221_79009071741256455443.pdf'
     },
     {
         id: 9,
-        title: 'Certification en Réseau',
-        category: 'Réseau',
+        title: 'Certification en Dev',
+        category: 'Development',
         imageUrl: 'certif/7993108_77529851741075837256_page-0001.jpg',
         siteUrl: 'certif/7993108_77529851741075837256.pdf'
     },
