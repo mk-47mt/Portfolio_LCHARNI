@@ -31,6 +31,7 @@ const certifications = [
         id: 5,
         title: 'Certification en Dev',
         category: 'Development',
+        category: 'IA',
         imageUrl: 'certif/certif chat gpt_page-0001.jpg',
         siteUrl: 'certif/certif chat gpt.pdf'
     },
@@ -61,6 +62,27 @@ const certifications = [
         category: 'Development',
         imageUrl: 'certif/7993108_77529851741075837256_page-0001.jpg',
         siteUrl: 'certif/7993108_77529851741075837256.pdf'
+    },
+    {
+        id: 10,
+        title: 'Certification en Dev',
+        category: 'Development',
+        imageUrl: 'certif/8170700_85258631744281603593_page-0001(1).jpg',
+        siteUrl: 'certif/8170700_85258631744281603593_page-0001(1).pdf'
+    },
+    {
+        id: 11,
+        title: 'Certification en IA',
+        category: 'IA',
+        imageUrl: 'certif/IntrotoModernAIUpdate20250410-29-k550vq_page-0001.jpg',
+        siteUrl: 'certif/IntrotoModernAIUpdate20250410-29-k550vq.pdf'
+    },
+    {
+        id: 12,
+        title: 'Certification en Dev',
+        category: 'Development',
+        imageUrl: 'certif/certif php_page-0001.jpg',
+        siteUrl: 'certif/certif php.pdf'
     },
     // Ajoutez d'autres certifications ici
 ];
