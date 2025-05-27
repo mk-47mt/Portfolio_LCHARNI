@@ -4,28 +4,28 @@ const certifications = [
         title: 'Certification Réseau',
         category: 'Réseau',
         imageUrl: 'certif/AWS Course Completion Certificate_page-0001.jpg',
-        siteUrl: 'certif/AWS Course Completion Certificate.pdf'
+        siteUrl: 'certif/certif-aws_aws_merged.pdf'
     },
     {
         id: 2,
         title: 'Certification en Cybersécurité',
         category: 'Cybersécurité',
         imageUrl: 'certif/certif neta_page-0001.jpg',
-        siteUrl: 'certif/certif neta.pdf'
+        siteUrl: 'certif/certif-neta-neta-merged.pdf'
     },
     {
         id: 3,
         title: 'Certification en Cybersécurité',
         category: 'Cybersécurité',
         imageUrl: 'certif/certif ainssi_page-0001.jpg',
-        siteUrl: 'certif/certif ainssi.pdf'
+        siteUrl: 'certif/certif-ainssi_merged.pdf'
     },
     {
         id: 4,
         title: 'Certification en Dev',
         category: 'Development',
         imageUrl: 'certif/certif_sql.jpg',
-        siteUrl: 'certif/certif sql.pdf'
+        siteUrl: 'certif/certif-sql_sql_merged.pdf'
     },
     {
         id: 5,
@@ -33,35 +33,35 @@ const certifications = [
         category: 'Development',
         category: 'IA',
         imageUrl: 'certif/certif chat gpt_page-0001.jpg',
-        siteUrl: 'certif/certif chat gpt.pdf'
+        siteUrl: 'certif/certif-chat-gpt_merged.pdf'
     },
      {
         id: 6,
         title: 'Certification Réseau',
         category: 'Réseau',
         imageUrl: 'certif/5061_7991609_page-0001.jpg',
-        siteUrl: 'certif/5061_7991609.pdf'
+        siteUrl: 'certif/certif-ccna_ccna_merged.pdf'
     },
      {
         id: 7,
         title: 'Certification en Dev',
         category: 'Development',
         imageUrl: 'certif/4496_7992265_page-0001.jpg',
-        siteUrl: 'certif/4496_7992265.pdf'
+        siteUrl: 'certif/certif-html_html_merged.pdf'
     },
     {
         id: 8,
         title: 'Certification en Réseau',
         category: 'Réseau',
         imageUrl: 'certif/8004221_79009071741256455443_page-0001.jpg',
-        siteUrl: 'certif/8004221_79009071741256455443.pdf'
+        siteUrl: 'certif/certif-computer-networking-merged.pdf'
     },
     {
         id: 9,
         title: 'Certification en Dev',
         category: 'Development',
         imageUrl: 'certif/7993108_77529851741075837256_page-0001.jpg',
-        siteUrl: 'certif/7993108_77529851741075837256.pdf'
+        siteUrl: 'certif/certif-css_css_merged.pdf'
     },
     {
         id: 10,
