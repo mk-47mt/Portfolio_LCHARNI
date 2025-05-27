@@ -68,21 +68,21 @@ const certifications = [
         title: 'Certification en Dev',
         category: 'Development',
         imageUrl: 'certif/8170700_85258631744281603593_page-0001(1).jpg',
-        siteUrl: 'certif/8170700_85258631744281603593_page-0001(1).pdf'
+        siteUrl: 'certif/certif-java_java_merged.pdf'
     },
     {
         id: 11,
         title: 'Certification en IA',
         category: 'IA',
         imageUrl: 'certif/IntrotoModernAIUpdate20250410-29-k550vq_page-0001.jpg',
-        siteUrl: 'certif/IntrotoModernAIUpdate20250410-29-k550vq.pdf'
+        siteUrl: 'certif/certif-ia_ia_merged.pdf'
     },
     {
         id: 12,
         title: 'Certification en Dev',
         category: 'Development',
         imageUrl: 'certif/certif php_page-0001.jpg',
-        siteUrl: 'certif/certif php.pdf'
+        siteUrl: 'certif/certif-php_php_merged.pdf'
     },
     // Ajoutez d'autres certifications ici
 ];
